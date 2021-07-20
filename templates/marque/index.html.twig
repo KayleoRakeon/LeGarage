@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Le Garage - Nos Marques{% endblock %}
+
+{% block body %}
+
+    <h1>Nos marques</h1>
+
+    {% for type, messages in app.flashes %}
+        {% for un_message in messages %}
+            <p class="alert alert-{{type}}">{{un_message}}</p>
+        {% endfor %}
+    {% endfor %}
+
+    {% if marque is empty %}
+        <p class="alert alert-danger">Aucune marque renseignée</p>
+    {% else %}
+        <section>
+            {% for m in marque %}
+                <article>
+                    <h2>{{ m.nom }}</h2>
+                    <p><strong>{{ m.slogan }}</strong></p>
+                    <p>{{ m.annee }}, {{ m.pays }}</p>
+                    <div>
+                        <a
+                            href={{ path('une_marque', {'id':m.id}) }}
+                            class="btn btn-success"
+                        >Détails</a>
+                        <a
+                            href={{ path('delete_marque', {'id':m.id}) }}
+                            class="btn btn-danger"
+                        >Supprimer</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </section>
+    {% endif %}
+
+    {{ form(ajout) }}
+
+{% endblock %}
