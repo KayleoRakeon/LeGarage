@@ -1,20 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ModeleController!{% endblock %}
+{% block title %}Le Garage - Tous nos modèles{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Tous nos modèles</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/Symphony/garage/src/Controller/ModeleController.php'|file_link(0) }}">src/Controller/ModeleController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/Symphony/garage/templates/modele/index.html.twig'|file_link(0) }}">templates/modele/index.html.twig</a></code></li>
-    </ul>
-</div>
+    {% for type, messages in app.flashes %}
+        {% for un_message in messages %}
+            <p class="alert alert-{{type}}">{{un_message}}</p>
+        {% endfor %}
+    {% endfor %}
+
+    {% if modele is empty %}
+        <p class="alert alert-danger">Aucun modele renseigné</p>
+    {% else %}
+        <section>
+            {% for m in modele %}
+                <article>
+                    <h2>{{ m.marque.nom }}</h2>
+                    <p><strong>{{ m.nom }}</strong>, {{ m.annee }}</p>
+                    <p>{{ m.prix }}</p>
+                    <div>
+                        <a
+                            href={{ path('un_modele', {'id':m.id}) }}
+                            class="btn btn-success"
+                        >Détails</a>
+                        <a
+                            href={{ path('delete_modele', {'id':m.id}) }}
+                            class="btn btn-danger"
+                        >Supprimer</a>
+                    </div>
+                </article>
+            {% endfor %}
+        </section>
+    {% endif %}
+
+    {{ form(ajout) }}
+
 {% endblock %}
+
