@@ -3,5 +3,18 @@
 {% block title %}Le Garage{% endblock %}
 
 {% block body %}
-<h1>Bienvenue dans le garage</h1>
+    <section class="home">
+        <h1 class="title-home">Bienvenue dans le garage</h1>
+
+        <nav class="boutons">
+            <a
+                href={{ path('marque') }}
+                class="bouton-home"
+            >Nos marques</a>
+            <a
+                href={{ path('modele') }}
+                class="bouton-home"
+            >Nos modèles</a>
+        </nav>
+    </section>
 {% endblock %}

@@ -7,6 +7,7 @@
            and uncomment the following Encore helpers to start using Symfony UX #}
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
 
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
@@ -19,12 +20,6 @@
     <body>
 
         <main class="container">
-            <nav>
-                <ul>
-                    <li><a href={{path('marque')}}>Nos marques</a></li>
-                    <li><a href={{path('modele')}}>Tous les modèles</a></li>
-                </ul>
-            </nav>
             {% block body %}{% endblock %}
         </main>
 

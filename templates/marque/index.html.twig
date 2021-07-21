@@ -4,6 +4,13 @@
 
 {% block body %}
 
+    <nav>
+        <ul>
+            <li><a href={{path('marque')}}>Nos marques</a></li>
+            <li><a href={{path('modele')}}>Tous les modèles</a></li>
+        </ul>
+    </nav>
+
     <h1>Nos marques</h1>
 
     {% for type, messages in app.flashes %}

@@ -2,7 +2,16 @@
 
 {% block title %}Le Garage | {{ marque.nom }}{% endblock %}
 
+
 {% block body %}
+
+    <nav>
+        <ul>
+            <li><a href={{path('marque')}}>Nos marques</a></li>
+            <li><a href={{path('modele')}}>Tous les modèles</a></li>
+        </ul>
+    </nav>
+
     {% for type, messages in app.flashes %}
         {% for un_message in messages %}
             <p class="alert alert-{{type}}">{{un_message}}</p>

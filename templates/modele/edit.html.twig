@@ -3,6 +3,13 @@
 {% block title %}Le Garage | {{ modele.nom }}{% endblock %}
 
 {% block body %}
+    <nav>
+        <ul>
+            <li><a href={{path('marque')}}>Nos marques</a></li>
+            <li><a href={{path('modele')}}>Tous les modèles</a></li>
+        </ul>
+    </nav>
+
     {% for type, messages in app.flashes %}
         {% for un_message in messages %}
             <p class="alert alert-{{type}}">{{un_message}}</p>
@@ -12,9 +19,11 @@
     {% if modele is empty %}
         <p class="alert alert-danger">Aucun modèle renseigné</p>
     {% else %}
-        <h1>{{ modele.marque.nom }}</h1>
-        <p><strong>{{ modele.nom }}</strong>, {{ modele.annee }}</p>
-        <p>{{ modele.prix }}</p>
+        <article>
+            <h1>{{ modele.marque.nom }}</h1>
+            <p><strong>{{ modele.nom }}</strong>, {{ modele.annee }}</p>
+            <p>{{ modele.prix }}</p>
+        </article>
     {% endif %}
     {{ form(edit) }}
 {% endblock %}
