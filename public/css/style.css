@@ -61,3 +61,26 @@ h1.title-home{
 .bouton-home:hover::after{
     transform:translateY(0);
 }
+
+.box{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto 30px auto;
+    height:auto;
+    padding:20px 0;
+    box-sizing:border-box;
+}
+
+.box article{
+    width:calc(20% - 42px);
+    height:auto;
+    margin:0 20px;
+    float:left;
+    padding:15px;
+    box-sizing:border-box;
+    border:solid 1px black;
+}
+
+.clear{
+    clear:both;
+}

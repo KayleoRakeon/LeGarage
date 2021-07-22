@@ -22,7 +22,7 @@
     {% if marque is empty %}
         <p class="alert alert-danger">Aucune marque renseignée</p>
     {% else %}
-        <section>
+        <section class="box">
             {% for m in marque %}
                 <article>
                     <h2>{{ m.nom }}</h2>
@@ -41,6 +41,7 @@
                 </article>
             {% endfor %}
         </section>
+        <div class="clear"></div>
     {% endif %}
 
     {{ form(ajout) }}
